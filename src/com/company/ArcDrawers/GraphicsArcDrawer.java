@@ -2,7 +2,7 @@ package com.company.ArcDrawers;
 
 import java.awt.*;
 
-public class GraphicsArcDrawer implements ArcDrawer {
+public class GraphicsArcDrawer implements  ArcDrawer {
     private Graphics g;
 
     public GraphicsArcDrawer(Graphics g) {
@@ -10,7 +10,9 @@ public class GraphicsArcDrawer implements ArcDrawer {
     }
 
     @Override
-    public void drawArc(int x, int y, int width, int height,int startAngle, int arcAngle) {
-      g.drawArc(x, y, width,height, startAngle, arcAngle);
+    public void drawArc(int x, int y, int r, int startAngle, int endAngle) {
+        g.drawArc(x - r, y - r, 2 * r, 2 * r, startAngle, endAngle );
     }
+
+
 }

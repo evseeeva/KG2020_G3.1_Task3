@@ -1,27 +1,56 @@
 package com.company.Segment;
 
-import java.awt.*;
+import com.company.Point.RealPoint;
 
 public class Segment {
-    int x, y, r, startAngle, endAngle;
-
-    public Segment(int x, int y, int r, int startAngle, int endAngle) {
-        this.x = x;
-        this.y = y;
+    RealPoint p;
+    int r;
+    int startAngle;
+    int endAngle;
+    public Segment(RealPoint p, int r, int startAngle, int endAngle) {
+        this.p = p;
         this.r = r;
         this.startAngle = startAngle;
         this.endAngle = endAngle;
     }
-    public  static  void  drawSegment(Graphics2D g,int x, int y, int r,int startAngle, int endAngle ){
-        g.drawArc(x - r, y - r, 2 * r, 2 * r, startAngle, endAngle - startAngle);
-       if(Math.abs(endAngle-startAngle)<360){
-           double x1 = r * Math.cos(startAngle * Math.PI / 180);
-           double y1 = r * Math.sin(startAngle * Math.PI / 180);
-           double x2 = r * Math.cos(endAngle * Math.PI / 180);
-           double y2 = r * Math.sin(endAngle * Math.PI / 180);
-           g.drawLine(x, y, x + (int) x1, y - (int) y1);
-           g.drawLine(x, y, x + (int) x2, y - (int) y2);
-       }
+    public Segment(double x, double y, int r, int startAngle, int endAngle) {
+        this.p = new RealPoint(x, y);
+        this.r = r;
+        this.startAngle = startAngle;
+        this.endAngle = endAngle;
     }
+
+    public RealPoint getP() {
+        return p;
+    }
+
+    public void setP(RealPoint p) {
+        this.p = p;
+    }
+
+    public int getR() {
+        return r;
+    }
+
+    public void setR(int r) {
+        this.r = r;
+    }
+
+    public int getStartAngle() {
+        return startAngle;
+    }
+
+    public void setStartAngle(int startAngle) {
+        this.startAngle = startAngle;
+    }
+
+    public int getEndAngle() {
+        return endAngle;
+    }
+
+    public void setEndAngle(int endAngle) {
+        this.endAngle = endAngle;
+    }
+
 }
 
